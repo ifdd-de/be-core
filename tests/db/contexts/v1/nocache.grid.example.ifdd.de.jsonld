@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dom": "https://type.test/v1/nocache.grid.example.ifdd.de/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "objName": "dom:objName",
+    "objType": "dom:objType",
+    "objScope": "dom:objScope",
+    "origin": "dom:origin"
+  }
+}

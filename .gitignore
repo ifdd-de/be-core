@@ -1,0 +1,29 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Byte code
+__pycache__/
+*.py[cod]
+
+# Test and tooling caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+.env
+
+.DS_Store
+*~
+
+# OpenAPI document exported for a documentation build (docs/*/api-http.md)
+docs/*/openapi.json
+docs/_build/

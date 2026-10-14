@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ifdd-be-core"
+version = "26.10.2"
+description = "Shared runtime for IFDD JSON-LD micro services"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+
+dependencies = [
+    "fastapi[all]~=0.142.2",
+    "uvicorn[standard]~=0.54.0",
+    "slowapi~=0.1.10",
+    "SQLAlchemy~=2.1.3",
+    "greenlet~=3.5.6",
+    "psycopg[binary]~=3.3.6",
+    "pydantic~=2.13.5",
+    "pydantic-settings~=2.15.0",
+    "pyld~=3.3.0",
+    "rdflib~=7.6.0",
+    "requests~=2.34.2",
+    "requests-cache~=1.3.3",
+    "cachetools~=7.2.1",
+    "Authlib~=1.8.0",
+    "PyJWT~=2.15.1",
+    "PyYAML~=6.0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest~=9.1.1",
+    "pytest-asyncio~=1.4.0",
+    "pytest-cov",
+    "httpx2",
+    "black",
+    "isort",
+    "flake8",
+]
+
+[project.scripts]
+ifdd-be-create-tables = "ifdd.be.core.tools.schema:main_create"
+ifdd-be-purge = "ifdd.be.core.tools.schema:main_purge"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true
+
+# Swagger UI, ReDoc and the start script of the /docs and /redoc pages
+# (ifdd.be.core.docs_ui); the wheel must carry them.
+[tool.setuptools.package-data]
+"ifdd.be.core" = ["docs_assets/*.json", "docs_assets/*/*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dom": "https://type.test/v1/breaker.grid.example.ifdd.de/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "objName": "dom:objName",
+    "objType": "dom:objType",
+    "objScope": "dom:objScope",
+    "origin": "dom:origin",
+    "serialNumber": "dom:serialNumber",
+    "c_created": {
+      "@id": "dom:c_created",
+      "@type": "xsd:dateTime"
+    },
+    "c_modified": {
+      "@id": "dom:c_modified",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheCreated": {
+      "@id": "dom:c_cacheCreated",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheUpdated": {
+      "@id": "dom:c_cacheUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotBefore": {
+      "@id": "dom:c_validNotBefore",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotAfter": {
+      "@id": "dom:c_validNotAfter",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

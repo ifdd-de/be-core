@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "product": "https://type.test/v1/product/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "objName": "product:objName",
+    "objType": "product:objType",
+    "objScope": "product:objScope",
+    "description": "product:description",
+    "containedIn": {
+      "@id": "product:containedIn",
+      "@type": "@id"
+    },
+    "c_created": {
+      "@id": "product:c_created",
+      "@type": "xsd:dateTime"
+    },
+    "c_modified": {
+      "@id": "product:c_modified",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheCreated": {
+      "@id": "product:c_cacheCreated",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheUpdated": {
+      "@id": "product:c_cacheUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotBefore": {
+      "@id": "product:c_validNotBefore",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotAfter": {
+      "@id": "product:c_validNotAfter",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

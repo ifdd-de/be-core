@@ -1,0 +1,102 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: ifdd
+          POSTGRES_PASSWORD: ifdd
+          POSTGRES_DB: ifdd_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ifdd -d ifdd_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[dev]"
+
+      - name: Test
+        env:
+          # tests/db drop and create the nodes table of this database
+          IFDD_TEST_DB_URL: postgresql+psycopg://ifdd:ifdd@localhost:5432/ifdd_test
+        run: pytest -q
+
+  docs:
+    name: Documentation (docs/en, docs/de)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install
+        run: pip install . -r tests/docs/requirements.txt
+
+      - name: Export the OpenAPI document for both languages
+        run: |
+          for language in en de; do
+            python -c "import json; from ifdd.be.core import create_app; json.dump(create_app().openapi(), open('docs/$language/openapi.json', 'w'))"
+          done
+
+      - name: Both languages match and build without warnings
+        run: python tests/check_docs.py . --prefix ifdd-be-core-
+
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Build
+        run: |
+          pip install build
+          python -m build
+
+      - name: Check that the namespace stays implicit
+        run: python .github/scripts/check_namespace.py
+
+      - name: Check that the wheel carries the documentation assets
+        run: python .github/scripts/check_wheel_assets.py
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/

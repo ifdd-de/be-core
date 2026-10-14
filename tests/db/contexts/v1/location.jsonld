@@ -1,0 +1,35 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "location": "https://type.test/v1/location/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "objName": "location:objName",
+    "objType": "location:objType",
+    "objScope": "location:objScope",
+    "description": "location:description",
+    "c_created": {
+      "@id": "location:c_created",
+      "@type": "xsd:dateTime"
+    },
+    "c_modified": {
+      "@id": "location:c_modified",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheCreated": {
+      "@id": "location:c_cacheCreated",
+      "@type": "xsd:dateTime"
+    },
+    "c_cacheUpdated": {
+      "@id": "location:c_cacheUpdated",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotBefore": {
+      "@id": "location:c_validNotBefore",
+      "@type": "xsd:dateTime"
+    },
+    "c_validNotAfter": {
+      "@id": "location:c_validNotAfter",
+      "@type": "xsd:dateTime"
+    }
+  }
+}
