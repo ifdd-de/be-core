@@ -12,7 +12,7 @@ license = "BSD-3-Clause"
 license-files = ["LICENSE"]
 
 dependencies = [
-    "fastapi[all]~=0.142.2",
+    "fastapi[all]>=0.142.2,<0.144.0",
     "uvicorn[standard]~=0.54.0",
     "slowapi~=0.1.10",
     "SQLAlchemy~=2.1.3",
