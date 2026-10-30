@@ -2,6 +2,19 @@
 
 The version scheme follows the other IFDD repositories: `YY.MM.N`.
 
+## [26.10.3] - 2026-10-30
+
+- FastAPI 0.162.0: `fastapi[all]>=0.162.0,<0.163.0` (was `>=0.142.2,<0.144.0`).
+  FastAPI itself now depends on `opentelemetry-api`; its `all` extra also
+  installs the OpenTelemetry SDK and OTLP exporter, `fastar` and `httpx2`,
+  which this package does not use.
+- Lower bounds raised to the current releases: SQLAlchemy 2.1.6, pydantic
+  2.14.2, pydantic-settings 2.16.2 (`~=2.16.2`, was `~=2.15.0`), cachetools
+  7.2.7, Authlib 1.9.1 (`~=1.9.1`, was `~=1.8.0`); development: pytest 9.2.0
+  (`~=9.2.0`), pytest-asyncio 1.4.1.
+- Version 26.10.3, also in the examples of `/version` and `/prot_version`.
+- Documentation check: Sphinx 9.2.0 (`tests/docs/requirements.txt`).
+
 ## [26.10.2] - 2026-10-14
 
 ### API documentation (2026-10-13)

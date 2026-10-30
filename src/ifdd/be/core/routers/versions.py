@@ -24,7 +24,7 @@ router = APIRouter(tags=["meta"])
     response_model=dict,
     summary="Version of the instance (no token needed)",
     responses={
-        200: {"content": {"application/json": {"example": {"version": "26.10.2"}}}}
+        200: {"content": {"application/json": {"example": {"version": "26.10.3"}}}}
     },
     # Open to everyone: overrides the document-wide security requirement.
     openapi_extra={"security": []},
@@ -46,7 +46,7 @@ async def version():
     response_model=dict,
     summary="Version of the instance (sign-in needed)",
     responses={
-        200: {"content": {"application/json": {"example": {"version": "26.10.2_prot"}}}},
+        200: {"content": {"application/json": {"example": {"version": "26.10.3_prot"}}}},
         **error_responses(401, 403),
     },
 )
