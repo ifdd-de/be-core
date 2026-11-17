@@ -1,5 +1,4 @@
-# Versions for tests/check_docs.py (checked together on 2026-10-30).
+# Versions for tests/check_docs.py (checked together on 2026-11-14).
 sphinx==9.2.0
 myst-parser==5.1.0
-sphinxcontrib-mermaid==2.1.1
 sphinxcontrib-openapi==0.10.0
