@@ -2,6 +2,12 @@
 
 The version scheme follows the other IFDD repositories: `YY.MM.N`.
 
+## [Unreleased]
+
+- Package metadata: maintainers `ifdd.de contributors <maintainers@ifdd.de>`
+  and project URLs (homepage https://ifdd.de/packages/, repository). PyPI shows
+  them with the next release.
+
 ## [26.10.3] - 2026-10-30
 
 - FastAPI 0.162.0: `fastapi[all]>=0.162.0,<0.163.0` (was `>=0.142.2,<0.144.0`).

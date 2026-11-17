@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = "BSD-3-Clause"
 license-files = ["LICENSE"]
+maintainers = [{ name = "ifdd.de contributors", email = "maintainers@ifdd.de" }]
 
 dependencies = [
     "fastapi[all]>=0.162.0,<0.163.0",
@@ -40,6 +41,10 @@ dev = [
     "isort",
     "flake8",
 ]
+
+[project.urls]
+Homepage = "https://ifdd.de/packages/"
+Repository = "https://github.com/ifdd-de/be-core"
 
 [project.scripts]
 ifdd-be-create-tables = "ifdd.be.core.tools.schema:main_create"
