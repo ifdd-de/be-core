@@ -2,6 +2,11 @@
 
 The version scheme follows the other IFDD repositories: `YY.MM.N`.
 
+## [Unreleased]
+
+- CI: GitHub Actions pinned to commit SHAs (version as comment),
+  `persist-credentials: false` on every checkout.
+
 ## [26.11.1] - 2026-11-14
 
 - Package metadata: maintainers `ifdd.de contributors <maintainers@ifdd.de>`
