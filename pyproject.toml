@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ifdd-be-core"
-version = "26.11.1"
+version = "26.11.11"
 description = "Shared runtime for IFDD JSON-LD micro services"
 readme = "README.md"
 requires-python = ">=3.11"
